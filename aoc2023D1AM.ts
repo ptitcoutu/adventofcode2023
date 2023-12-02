@@ -1005,20 +1005,18 @@ xtwone3four
 4nineeightseven2
 zoneight234
 7pqrstsixteen`
+const spelledDigit = [
+'zero','one','two','three','four','five','six','seven','eight','nine'
+]
 const onlyDigits = sampleInput.split('\n').map(it => {
-    const onlyDigitsText = it
-       .replace(/one/g, '1')
-       .replace(/two/g, '2')
-       .replace(/three/g, '3')
-       .replace(/four/g, '4')
-       .replace(/five/g, '5')
-       .replace(/six/g, '6')
-       .replace(/seven/g, '7')
-       .replace(/eight/g, '8')
-       .replace(/nine/g, '9')
+    const onlyDigitsTextFromStart = spelledDigit.rep
+duce((previousVal, currVal, index)=> previousVal.replace(new RegExp(currVal,'g'), ""+index), it)
        .replace(/[a-z]/gi, '')
-    const firstDigits = onlyDigitsText.slice(0,1)
-    const lastDigits = onlyDigitsText.slice(-1)
+    const onlyDigitsTextFromEnd = spelledDigit.rep
+duce((previousVal, currVal, index)=> previousVal.replace(new RegExp(currVal+".*$",'g'), ""+index), it)
+       .replace(/[a-z]/gi, '')
+    const firstDigits = onlyDigitsTextFromStarts.slice(0,1)
+    const lastDigits = onlyDigitsTextFromEnd.slice(-1)
     return onlyDigitsText//+`${firstDigits}${lastDigits}`
 })
 console.log(onlyDigits)
