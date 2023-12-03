@@ -998,26 +998,11 @@ ccpeightbcvknglvcv81gcjnlnfnine9
 qdgdrtx9onefourdcvctldjnpcdjbc
 cjxkxsgmql4xxgjtpdcbmsixeight
 739`
-const sampleInput = `two1nine
-eightwothree
-abcone2threexyz
-xtwone3four
-4nineeightseven2
-zoneight234
-7pqrstsixteen`
-const spelledDigit = [
-'zero','one','two','three','four','five','six','seven','eight','nine'
-]
-const onlyDigits = sampleInput.split('\n').map(it => {
-    const onlyDigitsTextFromStart = spelledDigit.rep
-duce((previousVal, currVal, index)=> previousVal.replace(new RegExp(currVal,'g'), ""+index), it)
-       .replace(/[a-z]/gi, '')
-    const onlyDigitsTextFromEnd = spelledDigit.rep
-duce((previousVal, currVal, index)=> previousVal.replace(new RegExp(currVal+".*$",'g'), ""+index), it)
-       .replace(/[a-z]/gi, '')
-    const firstDigits = onlyDigitsTextFromStarts.slice(0,1)
-    const lastDigits = onlyDigitsTextFromEnd.slice(-1)
-    return onlyDigitsText//+`${firstDigits}${lastDigits}`
+const onlyDigits = input.split('\n').map(it => {
+    const onlyDigitsText = it.replace(/[^1-9]/g, '')
+    const firstDigits = onlyDigitsText.slice(0,1)
+    const lastDigits = onlyDigitsText.slice(-1)
+    return +`${firstDigits}${lastDigits}`
 })
 console.log(onlyDigits)
 console.log(onlyDigits.reduce(((prevVal, currentVal)=>prevVal+currentVal), 0))
